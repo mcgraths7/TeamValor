@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+pewter_city = Gym.create(name: 'Pewter City Gym')
+leader = Leader.create
+pokedex = Pokedex.create
+bulbasaur = Pokemon.create(name: 'Bulbasaur', element: 'grass', rarity: 1, evolution_state: 1, number_of_evolutions: 2, starting_level: 4)
+my_bulbasaur = TrainerSpecificPokemon.create(level: bulbasaur.starting_level)
+trainer_1 = Trainer.create
+trainer_2 = Trainer.create
+trainer_3 = Trainer.create
+lee = User.create(name: 'Lee', age: 21, catchphrase: 'ayy lmao', rank: 9001)
+gina = User.create(name: 'Gina', age: 21, catchphrase: 'idk lol??', rank: 19)
+steven = User.create(name: 'Steven', age: 26, catchphrase: 'here comes dat boi', rank: 1)
+julie = User.create(name: 'Julie', age: 25, catchphrase: 'whatever lmao amirite', rank: 2)

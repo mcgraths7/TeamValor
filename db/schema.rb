@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160712174955) do
 
   create_table "pokemons", force: :cascade do |t|
     t.string  "name"
-    t.string  "type"
+    t.string  "element"
     t.integer "rarity"
     t.integer "evolution_state"
     t.integer "number_of_evolutions"
