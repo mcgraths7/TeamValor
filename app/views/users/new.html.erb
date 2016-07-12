@@ -1,0 +1,28 @@
+<h1>Trainer Registration</h1>
+<%=form_for @user do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+  
+  <p>
+    <%= f.label :gym %>
+    <%= f.text_field :gym %>
+  </p>
+  
+  <p>
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+  </p>
+  
+  <p>
+    <%=f.label :catchphrase %>
+    <%= f.text_field :catchphrase %>
+  </p>
+  <%= f.submit %>
+<% end %>
