@@ -1,5 +1,4 @@
 class Gym < ActiveRecord::Base
-  has_many :users
-  has_many :trainers, through: :users
-  has_one :leader, through: :users
+  has_many :trainers
+  belongs_to :leader
 end
