@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712174955) do
+ActiveRecord::Schema.define(version: 20160713205209) do
+
+  create_table "elements", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "gyms", force: :cascade do |t|
     t.string "name"
@@ -23,10 +27,15 @@ ActiveRecord::Schema.define(version: 20160712174955) do
 
   create_table "pokemons", force: :cascade do |t|
     t.string  "name"
-    t.string  "element"
+    t.integer "element_id"
     t.integer "battle_power"
     t.integer "starting_level"
     t.integer "next_id"
+  end
+
+  create_table "strengths", force: :cascade do |t|
+    t.string  "name"
+    t.integer "element_id"
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -47,6 +56,11 @@ ActiveRecord::Schema.define(version: 20160712174955) do
     t.string  "catchphrase"
     t.integer "gym_id"
     t.integer "rank",            default: 1
+  end
+
+  create_table "weaknesses", force: :cascade do |t|
+    t.string  "name"
+    t.integer "element_id"
   end
 
 end
