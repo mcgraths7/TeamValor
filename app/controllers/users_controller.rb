@@ -8,32 +8,42 @@ class UsersController < ApplicationController
   end
 
   def show
-    set_user
+    byebug
+    @user = User.find(params[:id])
+    # set_user
   end
 
   def edit
-
+    @user = User.find(params[:id])
   end
 
   def create
+    byebug
     @user = User.create(user_params)
+    login(@user)
+    redirect_to user_path(@user)
   end
 
   def update
-    set_user
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user)
   end
 
   def destroy
-    set_user
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_path
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
+    # def set_user
+    #   @user = User.find(params[:id])
+    # end
+    # Potential issues with privacy and scope?
 
     def user_params
-      
+      params.require(:user).permit(:name, :age, :catchphrase, :rank)
     end
 
 end

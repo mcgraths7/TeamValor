@@ -1,13 +1,8 @@
-<h1>Trainer Registration</h1>
+<h1>Edit Trainer</h1>
 <%=form_for @user do |f| %>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
   </p>
 
   <p>
@@ -24,5 +19,6 @@
     <%=f.label :catchphrase %>
     <%= f.text_field :catchphrase %>
   </p>
-  <%= f.submit %>
+  <%= f.submit "Edit" %>
 <% end %>
+<%= button_to('Delete', user_path(@user), {method: 'delete'}) %>
