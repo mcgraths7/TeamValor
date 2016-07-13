@@ -24,21 +24,20 @@ ActiveRecord::Schema.define(version: 20160712174955) do
   create_table "pokemons", force: :cascade do |t|
     t.string  "name"
     t.string  "element"
-    t.integer "rarity"
-    t.integer "evolution_state"
-    t.integer "number_of_evolutions"
+    t.integer "battle_power"
     t.integer "starting_level"
-  end
-
-  create_table "trainer_specific_pokemons", force: :cascade do |t|
-    t.string  "nickname"
-    t.integer "user_id"
-    t.integer "pokemon_id"
-    t.integer "level"
+    t.integer "next_id"
   end
 
   create_table "trainers", force: :cascade do |t|
     t.integer "user_id"
+  end
+
+  create_table "user_pokemons", force: :cascade do |t|
+    t.string  "nickname"
+    t.integer "user_id"
+    t.integer "pokemon_id"
+    t.integer "level"
   end
 
   create_table "users", force: :cascade do |t|
