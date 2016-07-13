@@ -1,6 +1,7 @@
 class Pokemon < ActiveRecord::Base
-  has_many :trainer_specific_pokemon
-  has_many :pokedexes, through: :trainer_specific_pokemon
+
+  has_many :user_pokemon
+  has_many :users, through: :user_pokemon
 
   def evolve
     if self.level > 16 && self.evolution_state == 0 && self.number_of_evolutions == 2      
@@ -25,3 +26,6 @@ class Pokemon < ActiveRecord::Base
   end
 
 end
+
+
+
