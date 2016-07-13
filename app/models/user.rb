@@ -3,5 +3,7 @@ class User < ActiveRecord::Base
   has_one :trainer
   has_one :leader
   has_many :user_pokemons
-  # has_secure_password
+  has_secure_password
+
+  validates :password, presence: true
 end
