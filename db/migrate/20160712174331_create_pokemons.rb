@@ -3,14 +3,9 @@ class CreatePokemons < ActiveRecord::Migration[5.0]
     create_table :pokemons do |t|
       t.string :name
       t.string :element
-      t.integer :rarity
-      t.integer :evolution_state
-      t.integer :number_of_evolutions
-      t.string :base
-      t.string :mid
-      t.string :top
-      t.string :unique
+      t.integer :battle_power
       t.integer :starting_level
+      t.integer :next_id
     end
   end
 end

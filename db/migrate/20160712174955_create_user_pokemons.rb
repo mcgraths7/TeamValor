@@ -5,15 +5,8 @@ class CreateUserPokemons < ActiveRecord::Migration[5.0]
       t.integer :user_id
       t.integer :pokemon_id
       t.integer :level
-      t.string  :name
       t.string  :element
-      t.integer :rarity
-      t.integer :evolution_state
-      t.integer :number_of_evolutions
-      t.string  :base
-      t.string  :mid
-      t.string  :top
-      t.string  :unique
+      t.integer :battle_power
     end
   end
 end
