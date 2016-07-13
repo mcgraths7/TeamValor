@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 20160712174955) do
     t.integer "rarity"
     t.integer "evolution_state"
     t.integer "number_of_evolutions"
+    t.string  "base"
+    t.string  "mid"
+    t.string  "top"
+    t.string  "unique"
     t.integer "starting_level"
   end
 
@@ -39,6 +43,15 @@ ActiveRecord::Schema.define(version: 20160712174955) do
     t.integer "pokedex_id"
     t.integer "pokemon_id"
     t.integer "level"
+    t.string  "name"
+    t.string  "element"
+    t.integer "rarity"
+    t.integer "evolution_state"
+    t.integer "number_of_evolutions"
+    t.string  "base"
+    t.string  "mid"
+    t.string  "top"
+    t.string  "unique"
   end
 
   create_table "trainers", force: :cascade do |t|

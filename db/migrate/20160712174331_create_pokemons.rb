@@ -6,6 +6,10 @@ class CreatePokemons < ActiveRecord::Migration[5.0]
       t.integer :rarity
       t.integer :evolution_state
       t.integer :number_of_evolutions
+      t.string :base
+      t.string :mid
+      t.string :top
+      t.string :unique
       t.integer :starting_level
     end
   end
