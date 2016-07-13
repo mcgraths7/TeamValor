@@ -13,16 +13,11 @@
 ActiveRecord::Schema.define(version: 20160712174955) do
 
   create_table "gyms", force: :cascade do |t|
-    t.string  "name"
-    t.integer "leader_id"
-    t.string  "location"
+    t.string "name"
+    t.string "location"
   end
 
   create_table "leaders", force: :cascade do |t|
-    t.integer "user_id"
-  end
-
-  create_table "pokedexes", force: :cascade do |t|
     t.integer "user_id"
   end
 
@@ -36,7 +31,8 @@ ActiveRecord::Schema.define(version: 20160712174955) do
   end
 
   create_table "trainer_specific_pokemons", force: :cascade do |t|
-    t.integer "pokedex_id"
+    t.string  "nickname"
+    t.integer "user_id"
     t.integer "pokemon_id"
     t.integer "level"
   end
