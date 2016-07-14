@@ -1,10 +1,11 @@
 class PokemonsController < ApplicationController
   
   def new
+
   end
 
   def index
-
+    @pokemons = Pokemon.all 
   end
 
   def edit
