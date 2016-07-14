@@ -8,14 +8,16 @@
 
 
 <h3><%= label_tag "Your Pokemon" %></h3>
-  <% @user_pokemons.each do |pokemon| %>
+  <% @user.user_pokemons.each do |pokemon| %>
     <p><%= label_tag :nickname %>
     <%= pokemon.nickname %></p>
+    <%= link_to "Edit Nickname", edit_pokemons_path(session[:user_id], pokemon) %>
     <p><%= label_tag :level %>
     <%= pokemon.level %></p>
   <% end %>
 
 <h3><%= label_tag "Add New Pokemon" %></h3>
+
 
 
 

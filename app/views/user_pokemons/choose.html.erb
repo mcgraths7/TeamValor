@@ -1,8 +1,0 @@
-
-
-<%= form_tag new_user_pokemon_path, method: :get %>
-  <% @pokemons.each do |pokemon| %>
-    <label for=""><%= pokemon.name %></label>
-    <input type="checkbox" name="pokemon[name][]" value="<%= pokemon.name %>">
-  <% end %>
-<%= submit_tag 'Submit' %>
