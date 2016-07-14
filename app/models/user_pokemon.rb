@@ -1,6 +1,8 @@
 class UserPokemon < ActiveRecord::Base
   belongs_to :user
   belongs_to :pokemon
+  has_many :battles, foreign_key: 'friend_id'
+  has_many :battles, foreign_key: 'foe_id'
 
   def evolve
     required_level? ? self.pokemon = Pokemon.find(self.pokemon.next_id) : "Cannot evolve"
@@ -12,21 +14,22 @@ class UserPokemon < ActiveRecord::Base
   end
 
   def battle(foe)
-    multiplier = self.pokemon.advantage(foe.pokemon)
-    friend_power = self.pokemon.battle_power*multiplier + self.level + rand(1..4)
-    foe_power = foe.pokemon.battle_power + foe.level + rand(1..4)
-    result(friend_power, foe_power)
+    battle = Battle.create(friend: self, foe: foe)
+    byebug
+    battle.result == 'won' ? level_up : level_down(foe)
+    self.save
+    self.user.save
   end
 
-  def result(friend_power, foe_power)
-    if friend_power >= foe_power
-      self.level += 1
-      self.user.rank += 1
-    else
-      self.user.rank -= 1
-    end
-    self.user.save
-    self.save
+  def level_up
+    self.level += 1
+    self.user.rank += 1
+  end
+
+  def level_down(foe)
+    foe.level += 1
+    foe.user.rank += 1
+    self.user.rank -= 1
   end
 
 end

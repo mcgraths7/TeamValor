@@ -1,6 +1,5 @@
 class Element < ApplicationRecord
-  has_many :pokemon, inverse_of: :element
-  has_many :strengths
-  has_many :weaknesses
-
+  has_many :pokemon
+  has_many :multipliers, foreign_key: 'friend_element_id'
+  has_many :multipliers, foreign_key: 'foe_element_id'
 end
