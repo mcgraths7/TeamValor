@@ -13,4 +13,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def index
+  end
+
 end

@@ -5,5 +5,6 @@
 <p><%= @user.catchphrase %></p>
 <h3><%= label_tag :rank %></h3>
 <p><%= @user.rank %></p>
-<%= link_to  %>
+<%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
+
 <!-- <%= @user.gym %>  Need to add gyms-->

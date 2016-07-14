@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    byebug
     @user = User.find(params[:id])
     # set_user
   end
@@ -18,7 +17,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    byebug
     @user = User.create(user_params)
     login(@user)
     redirect_to user_path(@user)
@@ -43,7 +41,7 @@ class UsersController < ApplicationController
     # Potential issues with privacy and scope?
 
     def user_params
-      params.require(:user).permit(:name, :age, :catchphrase, :rank)
+      params.require(:user).permit(:name, :age, :catchphrase, :rank, :password, :gym_id)
     end
 
 end
