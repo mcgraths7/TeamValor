@@ -26,7 +26,15 @@ gym
 users
 leader
 trainers
-Pokemon.create(name: 'Bulbasaur', element: 'grass', battle_power: 2, starting_level: 4, next_id: 2)
-Pokemon.create(name: 'Ivysaur', element: 'grass', battle_power: 4, starting_level: 16, next_id: 3)
-Pokemon.create(name: 'Venusaur', element: 'grass', battle_power: 8, starting_level: 36, next_id: nil)
+Element.create(name: 'Grass')
+Element.create(name: 'Fire')
+Pokemon.create(name: 'Bulbasaur', element: Element.first, battle_power: 2, starting_level: 4, next_id: 2)
+Pokemon.create(name: 'Ivysaur', element: Element.first, battle_power: 4, starting_level: 16, next_id: 3)
+Pokemon.create(name: 'Venusaur', element: Element.first, battle_power: 8, starting_level: 36, next_id: nil)
+Pokemon.create(name: 'Charmander', element: Element.last, battle_power: 2, starting_level: 4, next_id: 5)
+Pokemon.create(name: 'Charmeleon', element: Element.last, battle_power: 4, starting_level: 16, next_id: 6)
+Pokemon.create(name: 'Charizard', element: Element.first, battle_power: 8, starting_level: 36, next_id: nil)
 UserPokemon.create(user: User.find_by(name: 'Lee'), pokemon: Pokemon.find_by(name: 'Bulbasaur'), level: Pokemon.find_by(name: 'Bulbasaur').starting_level)
+Element.first.weaknesses << Weakness.create(name: Element.second.name)
+UserPokemon.create(nickname: 'boba', user: User.find_by(name: 'Lee'), pokemon: Pokemon.find_by(name: 'Bulbasaur'), Pokemon.find_by(name: 'Bulbasaur').starting_level)
+UserPokemon.create(user: User.find_by(name: 'Gina'), pokemon: Pokemon.find_by(name: 'Charmander'), level: Pokemon.find_by(name: 'Charmander').starting_level)
