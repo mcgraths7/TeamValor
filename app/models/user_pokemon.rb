@@ -5,8 +5,12 @@ class UserPokemon < ApplicationRecord
   has_many :battles, foreign_key: 'foe_id'
 
   def evolve
-    required_level? ? self.pokemon = Pokemon.find(self.pokemon.next_id) : "Cannot evolve"
-    self.save
+    if required_level?
+      self.pokemon = Pokemon.find(self.pokemon.next_id)
+      self.save
+    else
+      return nil
+    end
   end
 
   def required_level?
@@ -15,7 +19,6 @@ class UserPokemon < ApplicationRecord
 
   def battle(foe)
     battle = Battle.create(friend: self, foe: foe)
-    byebug
     battle.result == 'won' ? level_up : level_down(foe)
     self.save
     self.user.save
