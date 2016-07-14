@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, :pokemons, :sessions, :application, :user_pokemons
+  resources :users, :pokemons, :sessions, :application, :user_pokemons, :gyms
   root to: 'application#index'
   get '/login', to: 'sessions#new'
   get '/users/:id/pokemons/new', to: 'user_pokemons#new', as: 'new_pokemons'
