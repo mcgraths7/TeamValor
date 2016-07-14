@@ -11,20 +11,16 @@
   <% @user.user_pokemons.each do |pokemon| %>
     <p><%= label_tag :nickname %>
     <%= pokemon.nickname %></p>
-    <%= link_to "Edit Nickname", edit_pokemons_path(session[:user_id], pokemon) %>
+    <% if session[:user_id] == @user.id %>
+      <%= link_to "Edit Nickname", edit_pokemons_path(session[:user_id], pokemon) %>
+    <% end %>
     <p><%= label_tag :level %>
     <%= pokemon.level %></p>
   <% end %>
 
-<h3><%= label_tag "Add New Pokemon" %></h3>
-
-
-
-
-
-
-
-
-<%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
+<% if session[:user_id] == @user.id %>
+  <h3><%= link_to "Add New Pokemon", new_pokemons_path(session[:user_id]) %></h3>
+  <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
+<% end %>
 
 <!-- <%= @user.gym %>  Need to add gyms-->

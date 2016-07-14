@@ -12,7 +12,7 @@ class UserPokemonsController < ApplicationController
   end
 
   def show
-    @user_pokemon = User.find(params[:pokemon_id])
+    @user_pokemon = User.find(params[:id])
   end
 
   def update
@@ -33,4 +33,5 @@ class UserPokemonsController < ApplicationController
 
   def destroy
   end
+
 end
