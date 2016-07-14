@@ -1,3 +1,3 @@
-class Trainer < ActiveRecord::Base
+class Trainer < ApplicationRecord
   belongs_to :user
 end

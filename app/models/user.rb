@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   belongs_to :gym, optional: true
   has_one :trainer
   has_one :leader

@@ -1,4 +1,4 @@
-class Leader < ActiveRecord::Base
+class Leader < ApplicationRecord
   belongs_to :user
   validate :there_can_only_be_one
 
