@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160713173705) do
+=======
+ActiveRecord::Schema.define(version: 20160714024337) do
+
+  create_table "battles", force: :cascade do |t|
+    t.integer "friend_id"
+    t.integer "foe_id"
+  end
+>>>>>>> 7da955edbc511927bae8fd42b850984c28bc0fe2
 
   create_table "elements", force: :cascade do |t|
     t.string "name"
@@ -25,10 +34,15 @@ ActiveRecord::Schema.define(version: 20160713173705) do
     t.integer "user_id"
   end
 
+  create_table "multipliers", force: :cascade do |t|
+    t.integer "friend_element_id"
+    t.integer "foe_element_id"
+    t.float   "amount"
+  end
+
   create_table "pokemons", force: :cascade do |t|
     t.string  "name"
     t.integer "element_id"
-    t.integer "battle_power"
     t.integer "starting_level"
     t.integer "next_id"
   end
