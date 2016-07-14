@@ -1,3 +1,3 @@
 class Strength < ApplicationRecord
-has_many :elements
+  belongs_to :element
 end
