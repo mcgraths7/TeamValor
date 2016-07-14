@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_pokemons = @user.user_pokemons
     # set_user
   end
 
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    byebug
     login(@user)
     redirect_to user_path(@user)
   end

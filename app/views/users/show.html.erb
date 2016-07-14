@@ -5,6 +5,24 @@
 <p><%= @user.catchphrase %></p>
 <h3><%= label_tag :rank %></h3>
 <p><%= @user.rank %></p>
+
+
+<h3><%= label_tag "Your Pokemon" %></h3>
+  <% @user_pokemons.each do |pokemon| %>
+    <p><%= label_tag :nickname %>
+    <%= pokemon.nickname %></p>
+    <p><%= label_tag :level %>
+    <%= pokemon.level %></p>
+  <% end %>
+
+<h3><%= label_tag "Add New Pokemon" %></h3>
+
+
+
+
+
+
+
 <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
 
 <!-- <%= @user.gym %>  Need to add gyms-->

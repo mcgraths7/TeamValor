@@ -1,0 +1,11 @@
+<% @pokemons.each do |pokemon| %>
+  <p><%= label_tag "Name" %>
+  <%= pokemon.name %></p>
+  <p><%= label_tag "Element" %>
+  <%= pokemon.element.name %></p>
+  <p><%= label_tag "Starting Level" %>
+  <%= pokemon.starting_level %></p>
+
+<% end %>
+
+partial this

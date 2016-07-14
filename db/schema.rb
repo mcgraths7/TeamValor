@@ -10,16 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160713173705) do
-=======
 ActiveRecord::Schema.define(version: 20160714024337) do
 
   create_table "battles", force: :cascade do |t|
     t.integer "friend_id"
     t.integer "foe_id"
   end
->>>>>>> 7da955edbc511927bae8fd42b850984c28bc0fe2
 
   create_table "elements", force: :cascade do |t|
     t.string "name"
