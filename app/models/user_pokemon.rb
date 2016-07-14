@@ -1,3 +1,6 @@
+# Most of the methods right here, do something, whereas methods in the model should be about being something
+# and in the controller and ultimately a service object we want methods about doing something.  
+
 class UserPokemon < ApplicationRecord
   belongs_to :user
   belongs_to :pokemon
