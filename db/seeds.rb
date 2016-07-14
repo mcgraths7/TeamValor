@@ -3,8 +3,6 @@ Trainer.destroy_all
 Leader.destroy_all
 User.destroy_all
 Element.destroy_all
-Strength.destroy_all
-Weakness.destroy_all
 Pokemon.destroy_all
 UserPokemon.destroy_all
 
@@ -48,8 +46,8 @@ Pokemon.create(name: 'Venusaur', element: Element.first,  starting_level: 36, ne
 Pokemon.create(name: 'Squirtle', element: Element.last, starting_level: 4, next_id: 5)
 Pokemon.create(name: 'Wartortle', element: Element.last, starting_level: 16, next_id: 6)
 Pokemon.create(name: 'Blastoise', element: Element.first, starting_level: 36, next_id: nil)
-UserPokemon.create(user: User.find_by(name: 'Lee'), pokemon: Pokemon.find_by(name: 'Bulbasaur'), level: Pokemon.find_by(name: 'Bulbasaur').starting_level)
-UserPokemon.create(user: User.find_by(name: 'Gina'), pokemon: Pokemon.find_by(name: 'Charmander'), level: Pokemon.find_by(name: 'Charmander').starting_level)
+# UserPokemon.create(user: User.find_by(name: 'Lee'), pokemon: Pokemon.find_by(name: 'Bulbasaur'), level: Pokemon.find_by(name: 'Bulbasaur').starting_level)
+# UserPokemon.create(user: User.find_by(name: 'Gina'), pokemon: Pokemon.find_by(name: 'Charmander'), level: Pokemon.find_by(name: 'Squirtle').starting_level)
 Multiplier.create(friend_element_id: 1, foe_element_id: 1, amount: 1)
 Multiplier.create(friend_element_id: 1, foe_element_id: 2, amount: 0.5)
 Multiplier.create(friend_element_id: 1, foe_element_id: 3, amount: 2)
@@ -59,4 +57,3 @@ Multiplier.create(friend_element_id: 2, foe_element_id: 3, amount: 0.5)
 Multiplier.create(friend_element_id: 3, foe_element_id: 1, amount: 0.5)
 Multiplier.create(friend_element_id: 3, foe_element_id: 2, amount: 2)
 Multiplier.create(friend_element_id: 3, foe_element_id: 3, amount: 1)
-
