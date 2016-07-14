@@ -32,4 +32,11 @@ class UserPokemon < ActiveRecord::Base
     self.user.rank -= 1
   end
 
+  def switch_user(other_pokemon)
+    user_1 = self.user
+    user_2 = other_pokemon.user
+    self.user = user_2
+    other_pokemon.user = user_1
+  end
+
 end

@@ -15,4 +15,5 @@ class Battle < ApplicationRecord
       errors.add(:friend, "dont be cheap")
     end
   end
+  
 end
