@@ -4,8 +4,7 @@ class User < ApplicationRecord
   has_one :leader
   has_many :user_pokemons
   has_secure_password
-
-  validates :password, presence: true
+  
   validates :name, presence: true
 
 end
