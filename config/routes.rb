@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get '/users/:id/accept_trade/:trade_request_id', to: 'trade_requests#accept', as: 'trade_request_accept'
   post '/users/:id/decline_trade/:trade_request_id', to: 'trade_requests#decline', as: 'trade_request_decline'
   post '/users/:id', to: 'users#destroy', as: 'delete_user'
+  get '/users/:id/trade_requests', to: 'trade_requests#user', as: 'user_trade_requests'
+#  get '/users/:id/trade_requests/:pokemon_id'
+
   # get '/users/:id/pokemons', to: 'users#pokemons'
   # get '/users/:id/pokemons/:pokemon_id', to: 'user_pokemons#show'
   # post '/users/:id/pokemons/:pokemon_id', to: 'user_pokemons#create'
