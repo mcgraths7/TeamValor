@@ -10,7 +10,10 @@
     <link href='https://fonts.googleapis.com/css?family=Frijole|Oregano:400,400italic|Bowlby+One+SC|Cherry+Swash:400,700' rel='stylesheet' type='text/css'>
 
 </head>
-  <body>
+  <body style="background: url(background_<%= rand(7) %>.jpg)">
+    <div class="spacer">
+
+    </div>
     <!--  navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -25,6 +28,9 @@
         <a id="custom_nav" class="navbar-brand" href="<%= root_url %>"/>Trainer</a>
         <a id="custom_nav" class="navbar-brand" href="<%= root_url %>"/>Add Pokemon</a>
         <a id="custom_nav" class="navbar-brand" href="<%= root_url %>"/>Battle</a>
+        <a id="custom_nav" class="navbar-brand" href="<%= root_url %>"/>Trade</a>
+        <a id="login" class="navbar-brand" href="<%= root_url %>"/>Sign In</a>
+        <a id="login" class="navbar-brand" href="<%= root_url %>"/>Log Out</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
