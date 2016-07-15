@@ -16,7 +16,7 @@ class UserPokemonsController < ApplicationController
   end
 
   def update
-    byebug
+
     user_pokemon = UserPokemon.find(params[:id])
     user_pokemon.nickname = params["user_pokemon"]["nickname"]
     user_pokemon.save

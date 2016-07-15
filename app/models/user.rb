@@ -23,4 +23,6 @@ class User < ApplicationRecord
   def recipient?
     trade_requests_as_recipient.present?
   end
+
+  
 end
