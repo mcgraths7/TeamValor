@@ -1,36 +1,9 @@
+<div class="pokemon_profile">
 <%= render partial: "user_profile", object: @user, as: :user %>
+  <%= render partial: "user_pokemons/user_pokemon_profile", collection: @user_pokemons, as: :user_pokemon %>
+  <%= render partial: "user_links" %>
+</div>
 
-
-
-<!-- <h1><%= @user.name %></h1>
-<h3><%= label_tag :age %></h3>
-<p><%= @user.age %></p>
-<h3><%= label_tag :catchphrase %></h3>
-<p><%= @user.catchphrase %></p>
-<h3><%= label_tag :rank %></h3>
-<<<<<<< HEAD
-<p><%= @user.rank %></p> -->
-
-
-<!-- <h3><%= label_tag "Your Pokemon" %></h3>
-  <% @user.user_pokemons.each do |pokemon| %>
-    <p><%= label_tag :nickname %>
-    <%= pokemon.nickname %></p>
-    <% if session[:user_id] != @user.id %>
-    <%= link_to "Battle this Pokemon", battle_new_path(session[:user_id], pokemon) %>
-    <% end %>
-    <% if session[:user_id] == @user.id %>
-      <%= link_to "Edit Nickname", edit_pokemons_path(session[:user_id], pokemon) %>
-    <% end %>
-    <p><%= label_tag :level %>
-    <%= pokemon.level %></p>
-  <% end %> -->
-
-<!-- <% if session[:user_id] == @user.id %>
-  <h3><%= link_to "Add New Pokemon", new_pokemons_path(session[:user_id]) %></h3>
-  <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
-<% end %> -->
-<p><%= @user.rank %></p>
 <%= flash[:message] %>
 <% if session[:user_id] == @user.id %>
   <h3><%= label_tag "Your Pokemon" %></h3>

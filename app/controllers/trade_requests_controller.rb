@@ -23,7 +23,7 @@ class TradeRequestsController < ApplicationController
 
   def accept
     trade_request = TradeRequest.find(params[:trade_request_id])
-    Trader.create(trade_request: trade_request).execute
+    Trader.new(trade_request).execute
     flash[:message] = "successfully traded pokemon"
     TradeRequest.where('give_id = ? OR take_id = ?', trade_request.give.id, trade_request.give.id).destroy_all
     TradeRequest.where('give_id = ? OR take_id = ?', trade_request.take.id, trade_request.take.id).destroy_all

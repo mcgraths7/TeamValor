@@ -27,12 +27,16 @@
 body {
   padding-top: 70px;
   padding-bottom: 30px;
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 1200px;
   margin: 0 auto;
   padding: 0;
   // text-align: center;
+}
+
+body[style] {
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
 }
 .spacer {
   padding-top: 100px;

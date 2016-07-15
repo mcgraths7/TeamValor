@@ -1,0 +1,12 @@
+<% @user.user_pokemons.each do |pokemon| %>
+  <p><%= label_tag :nickname %>
+  <%= pokemon.nickname %></p>
+  <% if session[:user_id] != @user.id %>
+  <%= link_to "Battle this Pokemon", battle_new_path(session[:user_id], pokemon) %>
+  <% end %>
+  <% if session[:user_id] == @user.id %>
+    <%= link_to "Edit Nickname", edit_pokemons_path(session[:user_id], pokemon) %>
+  <% end %>
+  <p><%= label_tag :level %>
+  <%= pokemon.level %></p>
+<% end %>

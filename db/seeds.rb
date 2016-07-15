@@ -6,25 +6,7 @@ Element.destroy_all
 Pokemon.destroy_all
 UserPokemon.destroy_all
 
-# def elements
-#   elements = ['fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon', 'normal']
-#   elements.each do |element|
-#     Element.create(name: element)
-#   end
-# end
-# elements
-
-#
-# def trainers
-#  Trainer.create(user: User.find_by(name: 'Gina'))
-#  Trainer.create(user: User.find_by(name: 'Steven'))
-#  Trainer.create(user: User.find_by(name: 'Julie'))
-# end
-
-
 Gym.create(name: 'Pewter City Gym')
-
-Leader.create(user: User.first)
 
 Element.create(name: 'Normal')
 Element.create(name: 'Fire')
@@ -41,9 +23,6 @@ Element.create(name: 'Bug')
 Element.create(name: 'Rock')
 Element.create(name: 'Ghost')
 Element.create(name: 'Dragon')
-
-
-
 
 Pokemon.create(name: 'Bobasaur', element_id: Element.find_by(name: 'Grass').id, starting_level: 5, next_id: 2)
 Pokemon.create(name: 'Bloomin Onion', element_id: Element.find_by(name: 'Grass').id, starting_level: 16, next_id: 3)
@@ -342,3 +321,7 @@ User.create(name: 'Lee', age: 21, catchphrase: 'ayy lmao', rank: 9001, gym: Gym.
 User.create(name: 'Gina', age: 21, catchphrase: 'idk lol??', rank: 19, gym: Gym.first, password: "idk")
 User.create(name: 'Steven', age: 26, catchphrase: 'here comes dat boi', rank: 1, gym: Gym.first, password: "datboi")
 User.create(name: 'Julie', age: 25, catchphrase: 'whatever lmao amirite', rank: 2, gym: Gym.first, password: "whatever")
+Leader.create(user: User.first)
+Trainer.create(user_id: 2)
+Trainer.create(user_id: 3)
+Trainer.create(user_id: 4)

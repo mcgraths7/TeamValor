@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.create(user_params)
+    Trainer.create(user_id: @user.id)
     login(@user)
     redirect_to user_path(@user)
   end
@@ -24,7 +25,7 @@ class UsersController < ApplicationController
   def destroy
     set_user
     @user.destroy
-    redirect_to users_path
+    redirect_to '/gyms/1'
   end
   private
     def set_user
