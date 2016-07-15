@@ -1,9 +1,11 @@
 <div>
   <img src="#" />
   <h2>Name:</h2>
-  <p><%= user.name %></p>
+  <p><%= link_to user.name, user_path(user) %></p>
   <label>Rank:</label>
+  <% if user.trainer %>
   <p><%= user.trainer.rank %></p>
+  <% end %>
   <label>Catchphrase:</label>
   <p><%= user.catchphrase %></p>
 </div>

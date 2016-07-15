@@ -6,7 +6,7 @@
 <h4>Top Tier</h4>
 <% User.all.where('rank > 25').order('rank DESC').each do |user| %>
   <h6><%= label_tag :name %>
-  <%= user.name %></h6>
+  <%= link_to user.name, user_path(user) %></h6>
   <h6><%= label_tag :rank %>
   <%= user.rank %></h6>
   <% if current_user.leader.present? %>
@@ -16,7 +16,7 @@
 <h4>Mid Tier</h4>
 <% User.all.where(:rank => 11..24).order('rank DESC').each do |user| %>
   <h6><%= label_tag :name %>
-  <%= user.name %></h6>
+  <%= link_to user.name, user_path(user) %></h6>
   <h6><%= label_tag :rank %>
   <%= user.rank %></h6>
   <% if current_user.leader.present? %>
@@ -26,7 +26,7 @@
 <h4>Low Tier</h4>
 <% User.all.where('rank < 10').order('rank DESC').each do |user| %>
   <h6><%= label_tag :name %>
-  <%= user.name %></h6>
+  <%= link_to user.name, user_path(user) %></h6>
   <h6><%= label_tag :rank %><
   <%= user.rank %></h6>
   <% if current_user.leader.present? %>
