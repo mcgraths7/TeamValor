@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.create(user_params)
+    Trainer.create(user_id: @user.id)
     login(@user)
     redirect_to user_path(@user)
   end

@@ -24,5 +24,7 @@ class User < ApplicationRecord
     trade_requests_as_recipient.present?
   end
 
+
+
   
 end

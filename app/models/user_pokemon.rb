@@ -7,9 +7,4 @@ class UserPokemon < ApplicationRecord
   has_many :trade_requests, foreign_key: 'give_id'
   has_many :trade_requests, foreign_key: 'take_id'
 
-  def trainer_rank=()
-    self.user.trainer.rank
-    self.save
-  end
-
 end
