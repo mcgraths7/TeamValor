@@ -1,0 +1,5 @@
+<%= form_for @user_pokemon, url: update_pokemons_path do |f|%>
+  <%= f.label :nickname %>
+  <%= f.text_field :nickname %>
+  <%= f.submit 'Change Nickname' %>
+<% end %>

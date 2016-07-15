@@ -1,0 +1,11 @@
+
+<h1> You chose to battle <%= "#{@foe.user.name}'s #{@foe.pokemon.name}"%>!</h1>
+
+<%= label_tag "Choose a Pokemon to battle with" %>
+<% @friends.each do |friend| %>
+<p><%= label_tag "Pokemon" %>
+<%= friend.nickname %></p>
+<p><%= label_tag "Level" %>
+<%= friend.level %></p>
+<p><%= link_to "Send to battle", battle_create_path(session[:user_id], friend, @foe), method: :post %></p>
+<% end %>

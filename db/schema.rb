@@ -38,9 +38,15 @@ ActiveRecord::Schema.define(version: 20160714024337) do
 
   create_table "pokemons", force: :cascade do |t|
     t.string  "name"
-    t.integer "element_id"
+    t.string  "element"
+    t.integer "rarity"
+    t.integer "evolution_state"
+    t.integer "number_of_evolutions"
+    t.string  "base"
+    t.string  "mid"
+    t.string  "top"
+    t.string  "unique"
     t.integer "starting_level"
-    t.integer "next_id"
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -52,8 +58,15 @@ ActiveRecord::Schema.define(version: 20160714024337) do
     t.integer "user_id"
     t.integer "pokemon_id"
     t.integer "level"
+    t.string  "name"
     t.string  "element"
-    t.integer "battle_power"
+    t.integer "rarity"
+    t.integer "evolution_state"
+    t.integer "number_of_evolutions"
+    t.string  "base"
+    t.string  "mid"
+    t.string  "top"
+    t.string  "unique"
   end
 
   create_table "users", force: :cascade do |t|
