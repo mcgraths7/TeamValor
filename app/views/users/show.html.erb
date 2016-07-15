@@ -30,7 +30,7 @@
   <h3><%= link_to "Add New Pokemon", new_pokemons_path(session[:user_id]) %></h3>
   <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
 <% end %> -->
-<p><%= @user.rank %></p>
+
 <%= flash[:message] %>
 <% if session[:user_id] == @user.id %>
   <h3><%= label_tag "Your Pokemon" %></h3>
