@@ -24,11 +24,7 @@ UserPokemon.destroy_all
 
 Gym.create(name: 'Pewter City Gym')
 
- User.create(name: 'Lee', age: 21, catchphrase: 'ayy lmao', rank: 9001, gym: Gym.first, password: "ayylmao")
- User.create(name: 'Gina', age: 21, catchphrase: 'idk lol??', rank: 19, gym: Gym.first, password: "idk")
- User.create(name: 'Steven', age: 26, catchphrase: 'here comes dat boi', rank: 1, gym: Gym.first, password: "datboi")
- User.create(name: 'Julie', age: 25, catchphrase: 'whatever lmao amirite', rank: 2, gym: Gym.first, password: "whatever")
- Leader.create(user: User.first)
+Leader.create(user: User.first)
 
 Element.create(name: 'Normal')
 Element.create(name: 'Fire')
@@ -342,5 +338,7 @@ Multiplier.create(friend_element_id: 15, foe_element_id: 13, amount: 1)
 Multiplier.create(friend_element_id: 15, foe_element_id: 14, amount: 1)
 Multiplier.create(friend_element_id: 15, foe_element_id: 15, amount: 1.5)
 
-
-
+User.create(name: 'Lee', age: 21, catchphrase: 'ayy lmao', rank: 9001, gym: Gym.first, password: "ayylmao")
+User.create(name: 'Gina', age: 21, catchphrase: 'idk lol??', rank: 19, gym: Gym.first, password: "idk")
+User.create(name: 'Steven', age: 26, catchphrase: 'here comes dat boi', rank: 1, gym: Gym.first, password: "datboi")
+User.create(name: 'Julie', age: 25, catchphrase: 'whatever lmao amirite', rank: 2, gym: Gym.first, password: "whatever")

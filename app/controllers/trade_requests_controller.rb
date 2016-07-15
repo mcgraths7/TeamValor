@@ -20,11 +20,16 @@ class TradeRequestsController < ApplicationController
     trade_request = TradeRequest.find(params[:trade_request_id])
     Trader.create(trade_request: trade_request).execute
     flash[:message] = "successfully traded pokemon"
-    trade_request.destroy
+    TradeRequest.where('give_id = ? OR take_id = ?', trade_request.give.id, trade_request.give.id).destroy_all
+    TradeRequest.where('give_id = ? OR take_id = ?', trade_request.take.id, trade_request.take.id).destroy_all
     redirect_to user_path(session[:user_id])
   end
 
   def destroy
+    trade_request = TradeRequest.find(params[:id])
+    trade_request.destroy
+    flash[:message] = "declined #{trade_request.give.user.name}'s request"
+    redirect_to user_path(session[:user_id])
   end
 
 end

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   post '/users/:id/:our_pokemon_id/battle/:their_pokemon_id', to: 'battles#create', as: 'battle_create'
   get '/users/:id/trade/:pokemon_id', to: 'trade_requests#new', as: 'trade_new'
   post '/users/:id/:give_id/trade/:take_id', to: 'trade_requests#create', as: 'trade_requests_create'
-  get '/users/:id/trade_requests/:trade_request_id', to: 'trade_requests#accept', as: 'trade_request_accept'
+  get '/users/:id/accept_trade/:trade_request_id', to: 'trade_requests#accept', as: 'trade_request_accept'
+  post '/users/:id/decline_trade/:trade_request_id', to: 'trade_requests#decline', as: 'trade_request_decline'
 
   # get '/users/:id/pokemons', to: 'users#pokemons'
   # get '/users/:id/pokemons/:pokemon_id', to: 'user_pokemons#show'

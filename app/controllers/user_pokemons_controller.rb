@@ -8,7 +8,7 @@ class UserPokemonsController < ApplicationController
   end
 
   def edit
-    set_pokemon
+    @user_pokemon = UserPokemon.find(params[:pokemon_id])
   end
 
   def show
@@ -17,7 +17,7 @@ class UserPokemonsController < ApplicationController
 
   def update
     byebug
-    user_pokemon = UserPokemon.find(params[:pokemon_id])
+    user_pokemon = UserPokemon.find(params[:id])
     user_pokemon.nickname = params["user_pokemon"]["nickname"]
     user_pokemon.save
     redirect_to user_path(session[:user_id])
