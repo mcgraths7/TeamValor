@@ -7,12 +7,7 @@ class UserPokemon < ApplicationRecord
   has_many :battles, foreign_key: 'foe_id'
   has_many :rank_adjusters, foreign_key: 'friend_id'
   has_many :rank_adjusters, foreign_key: 'foe_id'
-
-  def switch_user(other_pokemon)
-    user_1 = self.user
-    user_2 = other_pokemon.user
-    self.user = user_2
-    other_pokemon.user = user_1
-  end
+  has_many :trade_requests, foreign_key: 'sender_id'
+  has_many :trade_requests, foreign_key: 'recipient_id'
 
 end

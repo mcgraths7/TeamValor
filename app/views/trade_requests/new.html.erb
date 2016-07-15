@@ -1,0 +1,11 @@
+
+<h1> You requested to trade for <%= "#{@recipient.user.name}'s #{@recipient.pokemon.name}"%>!</h1>
+
+<%= label_tag "Choose a Pokemon to exchange" %>
+<% @possible_senders.each do |sender| %>
+<p><%= label_tag "Pokemon" %>
+<%= sender.nickname %></p>
+<p><%= label_tag "Level" %>
+<%= sender.level %></p>
+<p><%= link_to "Initiate trade request", trade_requests_create_path(session[:user_id], sender, @recipient), method: :post %></p>
+<% end %>

@@ -15,7 +15,6 @@ class BattlesController < ApplicationController
     battle = Battle.create(friend: friend, foe: foe)
     if battle.save
       ra = RankAdjuster.create(friend: friend, foe: foe)
-      Evolver.create(user_pokemon: friend).evolve
       battle.result == 'won' ? ra.level_up : ra.level_down
       redirect_to battle_path(Battle.last)
     else
