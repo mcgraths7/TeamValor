@@ -1,0 +1,11 @@
+<h2> As Sender: </h2>
+<% @user.trade_requests_as_sender.each do |trade_request| %>
+ <h6> <%= "You offered to trade your level #{trade_request.give.level} #{trade_request.give.pokemon.name} for #{trade_request.give.user.name}'s #{trade_request.take.level} #{trade_request.take.pokemon.name}." %>
+ <%= link_to "Cancel", trade_request_path(trade_request), method: 'delete'%>
+<% end %>
+
+<h2> As Recipient: </h2>
+<% @user.trade_requests_as_recipient.each do |trade_request| %>
+ <h6> <%= "#{trade_request.give.user.name} wants to trade a level #{trade_request.give.level} #{trade_request.give.pokemon.name} for your level #{trade_request.take.level} #{trade_request.take.pokemon.name}." %>
+ <%= link_to "Accept", trade_request_accept_path(@user, trade_request) %> <%= link_to "Decline", trade_request_path(trade_request), method: 'delete'%>
+<% end %>
