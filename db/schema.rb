@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714024337) do
+ActiveRecord::Schema.define(version: 20160715033037) do
 
   create_table "battles", force: :cascade do |t|
     t.integer "friend_id"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 20160714024337) do
     t.string "name"
   end
 
+  create_table "evolvers", force: :cascade do |t|
+    t.integer "user_pokemon_id"
+  end
+
   create_table "gyms", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -28,6 +32,11 @@ ActiveRecord::Schema.define(version: 20160714024337) do
 
   create_table "leaders", force: :cascade do |t|
     t.integer "user_id"
+  end
+
+  create_table "level_adjusters", force: :cascade do |t|
+    t.integer "friend_id"
+    t.integer "foe_id"
   end
 
   create_table "multipliers", force: :cascade do |t|
@@ -43,6 +52,15 @@ ActiveRecord::Schema.define(version: 20160714024337) do
     t.integer "next_id"
   end
 
+  create_table "trade_requests", force: :cascade do |t|
+    t.integer "give_id"
+    t.integer "take_id"
+  end
+
+  create_table "traders", force: :cascade do |t|
+    t.integer "trade_request_id"
+  end
+
   create_table "trainers", force: :cascade do |t|
     t.integer "user_id"
   end
@@ -53,7 +71,6 @@ ActiveRecord::Schema.define(version: 20160714024337) do
     t.integer "pokemon_id"
     t.integer "level"
     t.string  "element"
-    t.integer "battle_power"
   end
 
   create_table "users", force: :cascade do |t|

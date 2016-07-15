@@ -24,7 +24,6 @@ UserPokemon.destroy_all
 
 Gym.create(name: 'Pewter City Gym')
 
-
  User.create(name: 'Lee', age: 21, catchphrase: 'ayy lmao', rank: 9001, gym: Gym.first, password: "ayylmao")
  User.create(name: 'Gina', age: 21, catchphrase: 'idk lol??', rank: 19, gym: Gym.first, password: "idk")
  User.create(name: 'Steven', age: 26, catchphrase: 'here comes dat boi', rank: 1, gym: Gym.first, password: "datboi")
