@@ -1,6 +1,8 @@
+<div class="pokemon_profile">
 <%= render partial: "user_profile", object: @user, as: :user %>
-
-
+  <%= render partial: "user_pokemons/user_pokemon_profile", collection: @user_pokemons, as: :user_pokemon %>
+  <%= render partial: "user_links" %>
+</div>
 
 <!-- <h1><%= @user.name %></h1>
 <h3><%= label_tag :age %></h3>

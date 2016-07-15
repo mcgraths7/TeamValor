@@ -16,8 +16,9 @@ class UserPokemonsController < ApplicationController
   end
 
   def update
+    byebug
     user_pokemon = UserPokemon.find(params[:pokemon_id])
-    user_pokemon.nickname = params["user_pokemon"]["nickname"]
+    user_pokemon.nickname = user_pokemon_params[:nickname]
     user_pokemon.save
     redirect_to user_path(session[:user_id])
   end
@@ -31,6 +32,12 @@ class UserPokemonsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def user_pokemon_params
+    params.require(:user_pokemon).permit(:nickname)
   end
 
 end
