@@ -8,11 +8,11 @@ class UserPokemonsController < ApplicationController
   end
 
   def edit
-    @user_pokemon = UserPokemon.find(params[:pokemon_id])
+    set_pokemon
   end
 
   def show
-    @user_pokemon = User.find(params[:id])
+    set_pokemon
   end
 
   def update
@@ -32,6 +32,12 @@ class UserPokemonsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_pokemon
+    @user_pokemon = UserPokemon.find(params[:id])
   end
 
 end

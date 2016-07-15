@@ -11,7 +11,9 @@ class Evolver < ApplicationRecord
 
   def evolve
     if required_level?
-      friend.pokemon = Pokemon.find(friend.pokemon.next_id)
+      next_pokemon = Pokemon.find(friend.pokemon.next_id)
+      friend.pokemon = next_pokemon
+      friend.nickname = next_pokemon.name
       friend.save
     end
   end

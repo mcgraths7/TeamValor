@@ -2,7 +2,7 @@
 
 
 <h2>Your new rank: <%= @battle.friend.user.rank %> </h2>
-<% if @battle.friend.evolve %>
+<% if Evolver.create(user_pokemon: @battle.friend).evolve %>
 <%= "#{@battle.friend.nickname} evolved into a #{@battle.friend.pokemon.name}!" %>
 <% end %>
 <%= link_to "Battle again!", users_path %>
