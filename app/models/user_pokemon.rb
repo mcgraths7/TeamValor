@@ -5,9 +5,9 @@ class UserPokemon < ApplicationRecord
   has_many :evolvers
   has_many :battles, foreign_key: 'friend_id'
   has_many :battles, foreign_key: 'foe_id'
-  has_many :rank_adjusters, foreign_key: 'friend_id'
-  has_many :rank_adjusters, foreign_key: 'foe_id'
-  has_many :trade_requests, foreign_key: 'sender_id'
-  has_many :trade_requests, foreign_key: 'recipient_id'
+  has_many :level_adjusters, foreign_key: 'friend_id'
+  has_many :level_adjusters, foreign_key: 'foe_id'
+  has_many :trade_requests, foreign_key: 'give_id'
+  has_many :trade_requests, foreign_key: 'take_id'
 
 end

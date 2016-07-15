@@ -1,14 +1,14 @@
 class TradeRequestsController < ApplicationController
 
   def new
-    @recipient = UserPokemon.find(params[:pokemon_id])
-    @possible_senders = User.find(session[:user_id]).user_pokemons
+    @take = UserPokemon.find(params[:pokemon_id])
+    @possible_gives = User.find(session[:user_id]).user_pokemons
   end
 
   def create
-    sender = UserPokemon.find(params[:sender_id])
-    recipient = UserPokemon.find(params[:recipient_id])
-    trade_request = TradeRequest.create(sender: sender, recipient: recipient)
+    give = UserPokemon.find(params[:give_id])
+    take = UserPokemon.find(params[:take_id])
+    trade_request = TradeRequest.create(give: give, take: take)
     redirect_to trade_request_path(trade_request)
   end
 
@@ -16,7 +16,7 @@ class TradeRequestsController < ApplicationController
     @trade_request = TradeRequest.find(params[:id])
   end
 
-  def execute
+  def accept
     trade_request = TradeRequest.find(params[:trade_request_id])
     Trader.create(trade_request: trade_request).execute
     flash[:message] = "successfully traded pokemon"

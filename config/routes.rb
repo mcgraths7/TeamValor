@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get '/users/:id/battle/:pokemon_id', to: 'battles#new', as: 'battle_new'
   post '/users/:id/:our_pokemon_id/battle/:their_pokemon_id', to: 'battles#create', as: 'battle_create'
   get '/users/:id/trade/:pokemon_id', to: 'trade_requests#new', as: 'trade_new'
-  post '/users/:id/:sender_id/trade/:recipient_id', to: 'trade_requests#create', as: 'trade_requests_create'
-  get '/users/:id/trade_requests/:trade_request_id', to: 'trade_requests#execute', as: 'trade_request_execute'
+  post '/users/:id/:give_id/trade/:take_id', to: 'trade_requests#create', as: 'trade_requests_create'
+  get '/users/:id/trade_requests/:trade_request_id', to: 'trade_requests#accept', as: 'trade_request_accept'
 
   # get '/users/:id/pokemons', to: 'users#pokemons'
   # get '/users/:id/pokemons/:pokemon_id', to: 'user_pokemons#show'

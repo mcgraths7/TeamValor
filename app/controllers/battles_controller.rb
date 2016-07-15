@@ -14,8 +14,8 @@ class BattlesController < ApplicationController
     foe = UserPokemon.find(params[:their_pokemon_id])
     battle = Battle.create(friend: friend, foe: foe)
     if battle.save
-      ra = RankAdjuster.create(friend: friend, foe: foe)
-      battle.result == 'won' ? ra.level_up : ra.level_down
+      la = LevelAdjuster.create(friend: friend, foe: foe)
+      battle.result == 'won' ? la.win : la.loss
       redirect_to battle_path(Battle.last)
     else
       flash[:message] = "don't be cheap"

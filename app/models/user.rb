@@ -9,15 +9,15 @@ class User < ApplicationRecord
 
   # these methods are useful, but it makes me think that the class user knows too much
   def trade_requests_as_sender
-    TradeRequest.joins(sender: :user).where('user_id = ?', self.id)
+    TradeRequest.joins(give: :user).where('user_id = ?', self.id)
   end
 
   def sender?
-    trade_requests_as_sender.present?
+    trade_requests_as_give.present?
   end
 
   def trade_requests_as_recipient
-    TradeRequest.joins(recipient: :user).where('user_id = ?', self.id)
+    TradeRequest.joins(take: :user).where('user_id = ?', self.id)
   end
 
   def recipient?

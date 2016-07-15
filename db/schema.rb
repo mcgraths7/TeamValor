@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(version: 20160715033037) do
     t.integer "user_id"
   end
 
+  create_table "level_adjusters", force: :cascade do |t|
+    t.integer "friend_id"
+    t.integer "foe_id"
+  end
+
   create_table "multipliers", force: :cascade do |t|
     t.integer "friend_element_id"
     t.integer "foe_element_id"
@@ -47,14 +52,9 @@ ActiveRecord::Schema.define(version: 20160715033037) do
     t.integer "next_id"
   end
 
-  create_table "rank_adjusters", force: :cascade do |t|
-    t.integer "friend_id"
-    t.integer "foe_id"
-  end
-
   create_table "trade_requests", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "recipient_id"
+    t.integer "give_id"
+    t.integer "take_id"
   end
 
   create_table "traders", force: :cascade do |t|
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 20160715033037) do
     t.integer "pokemon_id"
     t.integer "level"
     t.string  "element"
-    t.integer "battle_power"
   end
 
   create_table "users", force: :cascade do |t|
