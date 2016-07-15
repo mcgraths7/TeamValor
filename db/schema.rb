@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160715033037) do
 
   create_table "trainers", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "rank",    default: 1
   end
 
   create_table "user_pokemons", force: :cascade do |t|
