@@ -6,8 +6,11 @@
 <h3><%= label_tag :rank %></h3>
 <p><%= @user.rank %></p>
 
-
-<h3><%= label_tag "Your Pokemon" %></h3>
+<% if session[:user_id] == @user.id %>
+  <h3><%= label_tag "Your Pokemon" %></h3>
+<% else %>
+  <h3><%= label_tag "#{@user.name}'s Pokemon" %></h3>
+<% end %>
   <% @user.user_pokemons.each do |pokemon| %>
     <p><%= label_tag :nickname %>
     <%= pokemon.nickname %></p>

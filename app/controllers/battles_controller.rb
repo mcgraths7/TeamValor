@@ -12,8 +12,16 @@ class BattlesController < ApplicationController
   def create
     friend = UserPokemon.find(params[:our_pokemon_id])
     foe = UserPokemon.find(params[:their_pokemon_id])
-    friend.battle(foe)
-    redirect_to battle_path(Battle.last)
+    battle = Battle.create(friend: friend, foe: foe)
+    if battle.save
+      ra = RankAdjuster.create(friend: friend, foe: foe)
+      Evolve.create(user_pokemon: friend).evolve
+      battle.result == 'won' ? ra.level_up : ra.level_down
+      redirect_to battle_path(Battle.last)
+    else
+      flash[:message] = "don't be cheap"
+      redirect_to user_path(foe.user)
+    end
   end
 
 

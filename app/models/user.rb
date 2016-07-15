@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :skip_password_validation
   belongs_to :gym, optional: true
   has_one :trainer
   has_one :leader

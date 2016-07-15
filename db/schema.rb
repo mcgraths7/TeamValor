@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714024337) do
+ActiveRecord::Schema.define(version: 20160715011905) do
 
   create_table "battles", force: :cascade do |t|
     t.integer "friend_id"
@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 20160714024337) do
 
   create_table "elements", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "evolvers", force: :cascade do |t|
+    t.integer "user_pokemon_id"
   end
 
   create_table "gyms", force: :cascade do |t|
@@ -41,6 +45,11 @@ ActiveRecord::Schema.define(version: 20160714024337) do
     t.integer "element_id"
     t.integer "starting_level"
     t.integer "next_id"
+  end
+
+  create_table "rank_adjusters", force: :cascade do |t|
+    t.integer "friend_id"
+    t.integer "foe_id"
   end
 
   create_table "trainers", force: :cascade do |t|
