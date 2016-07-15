@@ -8,6 +8,7 @@
 <h3><%= label_tag :catchphrase %></h3>
 <p><%= @user.catchphrase %></p>
 <h3><%= label_tag :rank %></h3>
+<<<<<<< HEAD
 <p><%= @user.rank %></p> -->
 
 
@@ -29,5 +30,37 @@
   <h3><%= link_to "Add New Pokemon", new_pokemons_path(session[:user_id]) %></h3>
   <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
 <% end %> -->
+<p><%= @user.rank %></p>
+<%= flash[:message] %>
+<% if session[:user_id] == @user.id %>
+  <h3><%= label_tag "Your Pokemon" %></h3>
+<% else %>
+  <h3><%= label_tag "#{@user.name}'s Pokemon" %></h3>
+<% end %>
+<% @user.user_pokemons.each do |pokemon| %>
+  <p><%= label_tag :nickname %>
+  <%= pokemon.nickname %></p>
+  <% if session[:user_id] != @user.id %>
+    <%= link_to "Battle this Pokemon", battle_new_path(session[:user_id], pokemon) %>
+    <%= link_to "Initiate trade request", trade_new_path(session[:user_id], pokemon) %>
+  <% end %>
+  <% if session[:user_id] == @user.id %>
+    <%= link_to "Edit Nickname", edit_pokemons_path(session[:user_id], pokemon) %>
+  <% end %>
+  <p><%= label_tag :level %>
+  <%= pokemon.level %></p>
+<% end %>
+<% if session[:user_id] == @user.id %>
+  <h3><%= link_to "Add New Pokemon", new_pokemons_path(session[:user_id]) %></h3>
+  <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
+  <% if @user.recipient? %>
+    <h2>You have pending trade requests!</h2>
+    <% @user.trade_requests_as_recipient.each do |trade_request| %>
+       <h6> <%= "#{trade_request.give.user.name} wants to trade his level #{trade_request.give.level} #{trade_request.give.pokemon.name} for your level #{trade_request.take.level} #{trade_request.take.pokemon.name}." %>
+         <%= link_to "Accept", trade_request_accept_path(@user, trade_request) %>
+    <% end %>
+  <% end %>
+<% end %>
+
 
 <!-- <%= @user.gym %>  Need to add gyms
