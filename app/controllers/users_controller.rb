@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def destroy
     set_user
     @user.destroy
-    redirect_to users_path
+    redirect_to '/gyms/1'
   end
   private
     def set_user
