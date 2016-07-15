@@ -1,6 +1,6 @@
 class LevelAdjuster < ActiveRecord::Base
-  belongs_to :friend, class_name: 'UserPokemon'
-  belongs_to :foe, class_name: 'UserPokemon'
+    belongs_to :friend, class_name: 'UserPokemon'
+    belongs_to :foe, class_name: 'UserPokemon'
 
   def win
     friend.level += 1

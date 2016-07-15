@@ -23,5 +23,4 @@ class BattlesController < ApplicationController
     end
   end
 
-
 end
