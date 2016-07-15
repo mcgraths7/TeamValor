@@ -1,9 +1,12 @@
 
   class Evolver < ApplicationRecord
-    belongs_to :user_pokemon
+
+    def initialize(user_pokemon)
+      @user_pokemon = user_pokemon
+    end
 
     def friend
-      user_pokemon
+      @user_pokemon
     end
 
     def required_level?
