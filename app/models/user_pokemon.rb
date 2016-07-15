@@ -15,4 +15,8 @@ class UserPokemon < ApplicationRecord
     self.save
   end
 
+  def trade_pending?
+    TradeRequest.where('give_id = ?', self.id).present?
+  end
+
 end
