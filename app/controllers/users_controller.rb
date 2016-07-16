@@ -6,31 +6,33 @@ class UsersController < ApplicationController
     @users = User.all
   end
   def show
-    set_user
+    @user = User.find(params[:id])
+    # @user_pokemons = @user.user_pokemons
+    # set_user
   end
   def edit
-    set_user
+    @user = User.find(params[:id])
   end
   def create
     @user = User.create(user_params)
-    Trainer.create(user_id: @user.id)
     login(@user)
     redirect_to user_path(@user)
   end
   def update
-    set_user
+    @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path(@user)
   end
   def destroy
-    set_user
+    @user = User.find(params[:id])
     @user.destroy
-    redirect_to '/gyms/1'
+    redirect_to users_path
   end
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
+    # def set_user
+    #   @user = User.find(params[:id])
+    # end
+    # Potential issues with privacy and scope?
     def user_params
       params.require(:user).permit(:name, :age, :catchphrase, :rank, :password, :gym_id)
     end
