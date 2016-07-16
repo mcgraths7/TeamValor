@@ -3,7 +3,9 @@
   <h2>Name:</h2>
   <p><%= user.name %></p>
   <label>Rank:</label>
-  <p><%= user.rank %></p>
+  <% if user.trainer.present? %>
+  <p><%= user.trainer.rank %></p>
   <label>Catchphrase:</label>
   <p><%= user.catchphrase %></p>
+  <%end%>
 </div>
