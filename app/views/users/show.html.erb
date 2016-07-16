@@ -4,29 +4,32 @@
   <%= render partial: "user_links" %>
 </div>
 
-<%= flash[:message] %>
-<% if session[:user_id] == @user.id %>
-  <h3><%= label_tag "Your Pokemon" %></h3>
-<% else %>
-  <h3><%= label_tag "#{@user.name}'s Pokemon" %></h3>
-<% end %>
-<% @user.user_pokemons.each do |pokemon| %>
-  <p><%= label_tag :nickname %>
-  <%= pokemon.nickname %></p>
-  <% if session[:user_id] != @user.id %>
+<!-- <h1><%= @user.name %></h1>
+<h3><%= label_tag :age %></h3>
+<p><%= @user.age %></p>
+<h3><%= label_tag :catchphrase %></h3>
+<p><%= @user.catchphrase %></p>
+<h3><%= label_tag :rank %></h3>
+<p><%= @user.rank %></p> -->
+
+
+<!-- <h3><%= label_tag "Your Pokemon" %></h3>
+  <% @user.user_pokemons.each do |pokemon| %>
+    <p><%= label_tag :nickname %>
+    <%= pokemon.nickname %></p>
+    <% if session[:user_id] != @user.id %>
     <%= link_to "Battle this Pokemon", battle_new_path(session[:user_id], pokemon) %>
-    <%= link_to "Initiate trade request", trade_new_path(session[:user_id], pokemon) %>
-  <% end %>
-  <% if session[:user_id] == @user.id %>
-    <%= link_to "Edit Nickname", edit_pokemons_path(session[:user_id], pokemon) %>
-  <% end %>
-  <p><%= label_tag :level %>
-  <%= pokemon.level %></p>
-<% end %>
-<% if session[:user_id] == @user.id %>
+    <% end %>
+    <% if session[:user_id] == @user.id %>
+      <%= link_to "Edit Nickname", edit_pokemons_path(session[:user_id], pokemon) %>
+    <% end %>
+    <p><%= label_tag :level %>
+    <%= pokemon.level %></p>
+  <% end %> -->
+
+<!-- <% if session[:user_id] == @user.id %>
   <h3><%= link_to "Add New Pokemon", new_pokemons_path(session[:user_id]) %></h3>
   <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
-  <% if @user.recipient? %>
-    <h2><%= link_to 'You have pending trade requests!', user_trade_requests_path(session[:user_id]) %></h2>
-  <% end %>
-<% end %>
+<% end %> -->
+
+<!-- <%= @user.gym %>  Need to add gyms
