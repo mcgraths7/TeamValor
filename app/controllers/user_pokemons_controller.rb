@@ -16,10 +16,8 @@ class UserPokemonsController < ApplicationController
   end
 
   def update
-
     set_pokemon
     @user_pokemon.nickname = user_pokemon_params[:nickname]
-
     @user_pokemon.save
     redirect_to user_path(session[:user_id])
   end

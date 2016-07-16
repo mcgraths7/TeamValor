@@ -9,7 +9,11 @@ class TradeRequestsController < ApplicationController
     give = UserPokemon.find(params[:give_id])
     take = UserPokemon.find(params[:take_id])
     trade_request = TradeRequest.create(give: give, take: take)
-    flash[:message] = "You have requested to trade  #{trade_request.give.nickname} in exchange for #{trade_request.take.user.name}'s #{trade_request.take.pokemon.name}."
+    if trade_request.save
+      flash[:message] = "You have requested to trade  #{trade_request.give.nickname} in exchange for #{trade_request.take.user.name}'s #{trade_request.take.pokemon.name}."
+    else
+      flash[:message] = "You have already made this trade request."
+    end
     redirect_to user_path(session[:user_id])
   end
 

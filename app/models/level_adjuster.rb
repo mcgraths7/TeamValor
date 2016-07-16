@@ -4,7 +4,6 @@
     def initialize(friend, foe)
       @friend = friend
       @foe = foe
-
     end
 
     def win

@@ -12,5 +12,4 @@
       @trade_request.give.save
       @trade_request.take.save
     end
-
   end
