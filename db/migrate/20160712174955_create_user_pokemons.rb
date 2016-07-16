@@ -6,6 +6,7 @@ class CreateUserPokemons < ActiveRecord::Migration[5.0]
       t.integer :pokemon_id
       t.integer :level
       t.string  :element
+      t.integer :battle_power
     end
   end
 end
