@@ -1,5 +1,5 @@
 
-  class LevelAdjuster < ActiveRecord::Base
+  class LevelAdjuster
 
     def initialize(friend, foe)
       @friend = friend

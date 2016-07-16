@@ -9,11 +9,11 @@ class TradeRequestsController < ApplicationController
     give = UserPokemon.find(params[:give_id])
     take = UserPokemon.find(params[:take_id])
     trade_request = TradeRequest.create(give: give, take: take)
-    if trade_request.save
+    # if trade_request.save
       flash[:message] = "You have requested to trade  #{trade_request.give.nickname} in exchange for #{trade_request.take.user.name}'s #{trade_request.take.pokemon.name}."
-    else
-      flash[:message] = "You have already made this trade request."
-    end
+    # else
+    #   flash[:message] = "You have already made this trade request."
+    # end
     redirect_to user_path(session[:user_id])
   end
 
@@ -36,8 +36,9 @@ class TradeRequestsController < ApplicationController
 
   def destroy
     trade_request = TradeRequest.find(params[:id])
+    byebug
     trade_request.destroy
-    if session[:user_id] = trade_request.give.user.id
+    if session[:user_id] == trade_request.give.user.id
       flash[:message] = "Declined your trade request to #{trade_request.take.user.name}."
     else
       flash[:message] = "Declined #{trade_request.give.user.name}'s request."
