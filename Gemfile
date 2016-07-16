@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -37,6 +38,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem "better_errors"
   gem 'rspec-rails'
+  gem "binding_of_caller"
 end
 
 group :development do

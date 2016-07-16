@@ -1,11 +1,9 @@
-<div>
+<div class="pokemon_profile">
   <img src="#" />
-  <h2>Name:</h2>
-  <p><%= user.name %></p>
-  <label>Rank:</label>
-  <% if user.trainer.present? %>
-  <p><%= user.trainer.rank %></p>
-  <label>Catchphrase:</label>
-  <p><%= user.catchphrase %></p>
+  <p><label>Name:</label> <%= user.name %></p>
+  <p><label>Rank:</label><% if user.trainer.present? %> <%= user.rank %></p>
+  <p><label>Catchphrase:</label> <%= user.catchphrase %></p>
+  <p><%= link_to "See Profile", user_path(@users) %></p>
+ 
   <%end%>
 </div>
