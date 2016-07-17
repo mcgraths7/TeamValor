@@ -5,7 +5,6 @@ class CreateUserPokemons < ActiveRecord::Migration[5.0]
       t.integer :user_id
       t.integer :pokemon_id
       t.integer :level
-      t.string  :element
     end
   end
 end

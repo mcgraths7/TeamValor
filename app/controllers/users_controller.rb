@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     set_user
   end
   def create
-    byebug
     @user = User.create(user_params)
     Trainer.create(user_id: @user.id)
     login(@user)

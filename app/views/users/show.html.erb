@@ -27,9 +27,9 @@
   <h3><%= link_to "Add New Pokemon", new_pokemons_path(session[:user_id]) %></h3>
   <%= button_to('Log Out', session_path(@user), {method: 'delete'}) %>
 <% end %>
-  <% if @user.recipient? || @user.sender? %>
+  <% if @user.pending_trade_requests && @user == current_user %>
     <h2><%= link_to 'You have pending trade requests!', user_trade_requests_path(session[:user_id]) %></h2>
   <% end %>
-<% if current_user.leader.present? && current_user.gym_id == @user.gym.id && current_user != @user %>
+<% if current_user_can_kick_out(@user) %>
   <%= link_to "Kick out", user_path(@user), method: :delete%>
 <% end %>

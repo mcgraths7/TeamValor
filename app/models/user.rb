@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_one :trainer
   has_one :leader
   has_many :user_pokemons
+  has_many :badge_trainers
+  has_many :badges, through: :badge_trainers
   has_secure_password
   validates_presence_of :name, :password
 
@@ -23,6 +25,10 @@ class User < ApplicationRecord
 
   def recipient?
     trade_requests_as_recipient.present?
+  end
+
+  def pending_trade_requests
+    sender? || recipient?
   end
 
 end
