@@ -1,14 +1,14 @@
 <div>
   <img src="#" />
-  <h2>Name:</h2>
+  <h2><label>Name:</label></h2>
   <p><%= link_to user.name, user_path(user) %></p>
+  <h3><label>Gym:</label></h3>
+  <p><%=user.gym.name%></p>
   <% if user.leader %>
     <h5> Leader of <%=user.gym.name%> Gym </h5>
   <% else %>
-    <label>Rank:</label>
-    <% if user.trainer %>
-      <p><%= user.trainer.rank %></p>
-    <% end %>
+    <p><label>Rank:</label><p>
+    <p><%= user.trainer.rank %></p>
   <% end %>
   <p><label>Catchphrase:</label></p>
   <p><%= user.catchphrase %></p>
