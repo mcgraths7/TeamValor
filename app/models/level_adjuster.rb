@@ -9,7 +9,6 @@
     def win
       @friend.level += 1
       @friend.save
-      byebug
       @friend.user.trainer.update(rank: @friend.user.trainer.rank + 1)
     end
 
@@ -17,6 +16,7 @@
       @foe.level += 1
       @foe.save
       @foe.user.trainer.update(rank: @foe.user.trainer.rank + 1)
+      @friend.user.trainer.update(rank: @friend.user.trainer.rank - 1)
     end
 
   end

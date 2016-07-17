@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :password_digest
       t.string :catchphrase
       t.integer :gym_id
-      t.integer :rank, :default => 1
     end
   end
 end

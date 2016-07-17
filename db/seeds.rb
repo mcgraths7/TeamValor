@@ -7,7 +7,10 @@ Pokemon.destroy_all
 UserPokemon.destroy_all
 Multiplier.destroy_all
 
-Gym.create(name: 'Pewter City Gym')
+Gym.create(name: 'Pewter City')
+Gym.create(name: 'Fuschia City')
+Gym.create(name: 'Saffron City')
+Gym.create(name: 'Cinnabar Island')
 
 Element.create(name: 'Normal')
 Element.create(name: 'Fire')
@@ -319,5 +322,11 @@ Multiplier.create(friend_element_id: 15, foe_element_id: 13, amount: 1)
 Multiplier.create(friend_element_id: 15, foe_element_id: 14, amount: 1)
 Multiplier.create(friend_element_id: 15, foe_element_id: 15, amount: 1.5)
 
-User.create(name: 'Lee', age: 21, catchphrase: 'ayy lmao', rank: 9001, gym: Gym.first, password: "ayylmao")
+User.create(name: 'Lee', age: 21, catchphrase: 'ayy lmao', gym: Gym.first, password: "hi")
+User.create(name: 'Gina', age: 21, catchphrase: 'idk lol', gym: Gym.find_by(name: 'Fuschia City'), password: "hi")
+User.create(name: 'Steven', age: 21, catchphrase: 'dat boi', gym: Gym.find_by(name: 'Saffron City'), password: "hi")
+User.create(name: 'Julie', age: 21, catchphrase: 'waddup', gym: Gym.last, password: "hi")
 Leader.create(user: User.first)
+Leader.create(user: User.find_by(name: 'Gina'))
+Leader.create(user: User.find_by(name: 'Steven'))
+Leader.create(user: User.last)

@@ -11,8 +11,8 @@
   </p>
 
   <p>
-    <%= f.label :gym_id %> #to add dropdown
-    <%= f.text_field :gym_id %>
+    <%= f.label :gym %>
+    <%= f.collection_select(:gym_id, Gym.all, :id, :name)%>
   </p>
 
   <p>

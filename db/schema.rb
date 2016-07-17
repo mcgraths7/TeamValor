@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20160715033037) do
     t.string  "password_digest"
     t.string  "catchphrase"
     t.integer "gym_id"
-    t.integer "rank",            default: 1
   end
 
 end
