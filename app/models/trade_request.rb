@@ -1,6 +1,7 @@
 class TradeRequest < ApplicationRecord
   belongs_to :give, class_name: 'UserPokemon'
   belongs_to :take, class_name: 'UserPokemon'
+  validates_uniqueness_of :give_id, scope: :take_id
   # validate :cannot_make_same_trade_request
 
 # this is a little glitchy, gonna ask jeff what's up

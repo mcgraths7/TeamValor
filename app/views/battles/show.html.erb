@@ -5,4 +5,5 @@
 <% if Evolver.new(@battle.friend).evolve %>
 <%= "#{@battle.friend.nickname} evolved into a #{@battle.friend.pokemon.name}!" %>
 <% end %>
+<%= flash[:message] %>
 <%= link_to "Battle again!", user_path(@battle.foe.user)%>
