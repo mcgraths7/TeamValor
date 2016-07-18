@@ -1,35 +1,19 @@
 <h1><%= @gym.name %></h1>
 <%= label_tag :leader %>
-<%= Leader.last.user.name %>
+<%= @gym.find_leader.first.name %>
+<h2>Most Common Type: <%= @gym.most_common_type.keys[0] %> with <%= @gym.most_common_type.values[0] %> Pokemon</h2>
+<h2>Highest Level Pokemon: <%= @gym.highest_level_pokemon %></h2>
+<h2>Trainers Who Have Claimed This Gym's Badge: <%= @gym.trainers_with_badge %>
 <h3>Trainers:</h3>
-
-<h4>Top Tier</h4>
-<% User.all.where('rank > 25').order('rank DESC').each do |user| %>
-  <h6><%= label_tag :name %>
-  <%= link_to user.name, user_path(user) %></h6>
-  <h6><%= label_tag :rank %>
-  <%= user.rank %></h6>
-  <% if current_user.leader.present? %>
-    <%= link_to "Kick out", user, method: :delete%>
-  <% end %>
-<% end %>
-<h4>Mid Tier</h4>
-<% User.all.where(:rank => 11..24).order('rank DESC').each do |user| %>
-  <h6><%= label_tag :name %>
-  <%= link_to user.name, user_path(user) %></h6>
-  <h6><%= label_tag :rank %>
-  <%= user.rank %></h6>
-  <% if current_user.leader.present? %>
-    <%= link_to "Kick out", user, method: :delete%>
-  <% end %>
-<% end %>
-<h4>Low Tier</h4>
-<% User.all.where('rank < 10').order('rank DESC').each do |user| %>
-  <h6><%= label_tag :name %>
-  <%= link_to user.name, user_path(user) %></h6>
-  <h6><%= label_tag :rank %><
-  <%= user.rank %></h6>
-  <% if current_user.leader.present? %>
-    <%= link_to "Kick out", user, method: :delete%>
+<% @tiers.each do |name, method| %>
+  <h4><%=name%> Tier</h4>
+  <% @gym.send(method).each do |user| %>
+    <h6><%= label_tag :name %>
+    <%= link_to user.name, user_path(user) %></h6>
+    <h6><%= label_tag :rank %>
+    <%= user.trainer.rank %></h6>
+    <% if current_user_leader_of(@gym)%>
+      <%= link_to "Kick out", user, method: :delete%>
+    <% end %>
   <% end %>
 <% end %>

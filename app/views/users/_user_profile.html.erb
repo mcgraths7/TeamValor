@@ -1,13 +1,20 @@
 <div>
   <img src="#" />
-  <h2>Name:</h2>
-  <p><%= link_to user.name, user_path(user) %></p>
-  <label>Rank:</label>
-
-  <% if user.trainer %>
-  <p><%= user.trainer.rank %></p>
-  <% end %>
-  <label>Catchphrase:</label>
-  <p><%= user.catchphrase %></p>
+  <!-- <h2><label>Name:</label></h2> -->
+  <h3><label><%= user.name %></label></h3>
+  <% if user.catchphrase.present? %>
+  <br><i>"<%=user.catchphrase%>"</i></br>
   <%end%>
+  <br><label>Gym:</label>
+  <%=link_to "#{user.gym.name}", gym_path(user.gym)%></br>
+  <% if user.leader %>
+    <br>Leader of <%=user.gym.name%></br>
+  <% else %>
+    <br><label>Rank:</label>
+    <%= user.trainer.rank %></br>
+    <br><ul><label>Badges:</label>
+    <% user.trainer.badges.each do |badge| %>
+    <li><%= badge.name %> Badge</li>
+    <% end %></ul><br>
+  <% end %>
 </div>

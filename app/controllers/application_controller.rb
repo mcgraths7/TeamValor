@@ -1,10 +1,21 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
+  helper_method :current_user_leader_of
+  helper_method :current_user_can_kick_out
 
   def current_user
     User.find(session[:user_id]) if session[:user_id]
   end
+
+  def current_user_leader_of(gym)
+    current_user.leader.present? && current_user.gym_id == gym.id
+  end
+
+  def current_user_can_kick_out(user)
+    current_user.leader.present? && current_user.gym_id == user.gym.id && current_user != user
+  end
+
 
   def login(user)
     session[:user_id] = user.id
