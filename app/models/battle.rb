@@ -12,7 +12,7 @@
     end
 
     def pokemon_must_be_similar_levels
-      if friend.level - foe.level >= 2
+      if friend.level - foe.level >= 4
         errors.add(:friend, "dont be cheap")
       end
     end

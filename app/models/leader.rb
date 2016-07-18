@@ -1,5 +1,7 @@
 class Leader < ApplicationRecord
   belongs_to :user
+  has_one :badge
+  has_many :trainers, through: :badges
   # validate :there_can_only_be_one
 
   # def find_gym

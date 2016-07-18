@@ -1,5 +1,5 @@
 
-  class Evolver < ApplicationRecord
+  class Evolver
 
     def initialize(user_pokemon)
       @user_pokemon = user_pokemon
