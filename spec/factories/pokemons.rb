@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :pokemon do |f|
     f.name "Bulbasaur"
-    f.element Element.create(name: 'Electric')
+    f.element_id 1
   end
 end
