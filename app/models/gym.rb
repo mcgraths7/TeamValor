@@ -2,6 +2,7 @@ class Gym < ApplicationRecord
   has_many :users
   has_many :trainers, through: :users
   has_one :leader, through: :users # this association doesn't work for some reason
+  validates_presence_of :name, :location
 
   def trainers
     users.joins(:trainer)
