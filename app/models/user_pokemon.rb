@@ -6,5 +6,4 @@ class UserPokemon < ApplicationRecord
   has_many :battles, foreign_key: 'foe_id'
   has_many :trade_requests, foreign_key: 'give_id'
   has_many :trade_requests, foreign_key: 'take_id'
-
 end
