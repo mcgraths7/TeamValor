@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Gym do
   before do
-    
+    #define all of the models that need to exist for these tests to pass
     @gym = FactoryGirl.create(:gym)
     @user_1 = FactoryGirl.create(:user, gym: @gym)
     @user_2 = FactoryGirl.create(:user, gym: @gym) 
