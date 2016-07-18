@@ -34,9 +34,7 @@ class Gym < ApplicationRecord
 
   def highest_level_pokemon
     pokemon = self.user_pokemons.order("level DESC")[0]
-    level = pokemon.level
-    name = pokemon.nickname
-    "Level #{level} #{name}"
+    "Level #{pokemon.level} #{pokemon.nickname}"
   end
 
   def trainers_with_badge
