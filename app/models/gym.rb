@@ -1,5 +1,7 @@
 class Gym < ApplicationRecord
   has_many :users
+  has_many :user_pokemons, through: :users
+  has_many :pokemons, through: :user_pokemons
   has_many :trainers, through: :users
   has_many :user_pokemons, through: :users
   has_many :pokemons, through: :user_pokemons
