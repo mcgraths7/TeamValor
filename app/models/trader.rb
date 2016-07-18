@@ -1,5 +1,5 @@
 
-  class Trader < ApplicationRecord
+  class Trader
     def initialize(trade_request)
       @trade_request = trade_request
     end
@@ -12,5 +12,4 @@
       @trade_request.give.save
       @trade_request.take.save
     end
-
   end

@@ -8,18 +8,16 @@ class UserPokemonsController < ApplicationController
   end
 
   def edit
-    @user_pokemon = UserPokemon.find(params[:pokemon_id])
+    set_pokemon
   end
 
   def show
-    set_pokemon
+    # set_pokemon
   end
 
   def update
-
     set_pokemon
     @user_pokemon.nickname = user_pokemon_params[:nickname]
-
     @user_pokemon.save
     redirect_to user_path(session[:user_id])
   end
@@ -33,6 +31,9 @@ class UserPokemonsController < ApplicationController
   end
 
   def destroy
+    user_pokemon = UserPokemon.find(params[:id])
+    user_pokemon.destroy
+    redirect_to user_path(session[:user_id])
   end
 
   private
@@ -42,7 +43,6 @@ class UserPokemonsController < ApplicationController
 
   def set_pokemon
     @user_pokemon = UserPokemon.find(params[:pokemon_id])
-
   end
 
 end
