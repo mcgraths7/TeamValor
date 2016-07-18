@@ -7,10 +7,7 @@ Pokemon.destroy_all
 UserPokemon.destroy_all
 Multiplier.destroy_all
 
-Gym.create(name: 'Pewter City')
-Gym.create(name: 'Fuschia City')
-Gym.create(name: 'Saffron City')
-Gym.create(name: 'Cinnabar Island')
+
 
 Element.create(name: 'Normal')
 Element.create(name: 'Fire')
@@ -321,17 +318,26 @@ Multiplier.create(friend_element_id: 15, foe_element_id: 12, amount: 1)
 Multiplier.create(friend_element_id: 15, foe_element_id: 13, amount: 1)
 Multiplier.create(friend_element_id: 15, foe_element_id: 14, amount: 1)
 Multiplier.create(friend_element_id: 15, foe_element_id: 15, amount: 1.5)
-
+Gym.create(name: 'Pewter City')
+Gym.create(name: 'Fuschia City')
+Gym.create(name: 'Saffron City')
+Gym.create(name: 'Cinnabar Island')
 User.create(name: 'Lee', age: 21, catchphrase: 'ayy lmao', gym: Gym.first, password: "hi")
 User.create(name: 'Gina', age: 21, catchphrase: 'idk lol', gym: Gym.find_by(name: 'Fuschia City'), password: "hi")
 User.create(name: 'Steven', age: 21, catchphrase: 'dat boi', gym: Gym.find_by(name: 'Saffron City'), password: "hi")
 User.create(name: 'Julie', age: 21, catchphrase: 'waddup', gym: Gym.last, password: "hi")
+
 UserPokemon.create(nickname: 'Charizard', user: User.find(2), pokemon: Pokemon.find(6), level: 36)
 UserPokemon.create(nickname: 'Dragonite', user: User.find(2), pokemon: Pokemon.find(67), level: 32)
 Leader.create(user: User.first)
 Leader.create(user: User.find(2))
 Leader.create(user: User.find(3))
 Leader.create(user: User.last)
+Gym.all.each do |gym|
+  i = 1
+  gym.update(leader_id: i)
+  i += 1
+end
 Badge.create(name: 'Boulder', leader: Leader.first)
 Badge.create(name: 'Soul', leader: Leader.find(2))
 Badge.create(name: 'Marsh', leader: Leader.find(3))

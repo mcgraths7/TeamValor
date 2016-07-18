@@ -15,7 +15,13 @@ class BattlesController < ApplicationController
     battle = Battle.create(friend: friend, foe: foe)
     if battle.save
       la = LevelAdjuster.new(friend, foe)
-      battle.result == 'won' ? la.win : la.loss
+      if battle.result == 'won'
+        la.win
+        flash[:message] = la.assign_badge
+      else
+        la.loss
+      end
+      byebug
       redirect_to battle_path(Battle.last)
     else
       flash[:message] = "don't be cheap"

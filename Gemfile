@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'httparty'
 gem 'factory_girl_rails'
 gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
