@@ -19,73 +19,260 @@
  */
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
-* {
-  font-family: 'Helvetica';
-  font-size: 1.1em;
+
+*{
+  font-family: 'Economica', sans-serif;
+  font-size: 1.15em;
 }
-// Body Styles
+
 body {
-  padding-top: 70px;
-  padding-bottom: 30px;
-  width: 1200px;
-  margin: 0 auto;
-  padding: 0;
-  // text-align: center;
+  height: 100vh;
 }
 
-body[style] {
-  background-size: cover !important;
-  background-attachment: fixed !important;
-  background-repeat: no-repeat !important;
-}
-.spacer {
-  padding-top: 100px;
+// Sidebar styles
+
+#sidebar {
+  background: url('/assets/office_@2X.png');
+  color: white;
+  padding: 10px;
+  padding-top: 40px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  font-size: 1.2em;
+
 }
 
-body .container {
-  width: 85%;
+
+.side-nav-bar a {
+  text-align: left;
+  display: block;
+  font-size: 1em;
+  color: white;
+  text-decoration: none;
+  padding-top: 0px;
+  padding-left: 25px;
+  box-shadow: 0px -11px 8px -8px rgba(255,255,255,0.08);
+  border-radius: 15px;
+}
+
+.side-nav-bar a:hover {
+  background-color: rgba(255,255,255,0.08);
+}
+
+.side-nav-bar img {
+  width: 75%;
+  border-radius: 100%;
+  border: solid 4px white;
+  box-shadow: 0px 0px 12px 3px rgba(255,255,255,0.3);
+}
+
+.side-nav-bar h1 {
+  margin-bottom: 20px;
+  font-size: 2.5em
+}
+
+.side-nav-bar h3 {
+  margin-bottom: 30px;
+}
+
+// Avatar pulse animation
+.pulse {
+  box-shadow: 0 0 0 rgba(255,255,255, 0.4);
+  animation: pulse 2s infinite;
+}
+
+.pulse:hover {
+  animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 1);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 8px 14px rgba(204,169,44, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 1);
+    box-shadow: 0 0 0 0 rgba(255,255,255, 1);
+  }
+  70% {
+      -moz-box-shadow: 0 0 8px 14px rgba(204,169,44, 0);
+      box-shadow: 0 0 8px 14px rgba(204,169,44, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+      box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+
+.align {
+  color: white;
+  float: left;
+  border: solid rgba(0,0,0, 1) 4px;
+  border-radius: 20px;
+  margin: 10px;
+  // background-color: #e6e6e6;
+  background: url('/assets/office_@2X.png');
+  padding: 20px;
+}
+
+.align a {
+  border: solid black 1px;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: rgba(255,255,255, 0.1);
+}
+
+.crop {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 25px;
+    border-bottom: rgba(0,0,0, 1) solid 3px;
+    border-right: rgba(0,0,0, 1) solid 3px;
+    border-top: rgba(255,255,255, 1) solid 3px;
+    border-left: rgba(255,255,255, 1) solid 3px;
+}
+
+.crop img {
+  border-top-left-radius: 20px;
+  width: 200px;
+    // margin: -75px 0 0 -100px;
 }
 
 .pokemon_profile {
-  width: 30%;
-  text-align: left;
-  float: left;
-  margin: 0px 12px;
-  margin-top: 50px;
-  border: 5px solid black;
-  border-radius: 7px;
-  padding-right: 75px;
-  padding-left: 10px;
+  padding: 30px;
 }
 
 .pokemon_profile img {
-  width: 50%;
-  padding: 12px 0;
-  // border-radius: 10px;
+  border-radius: 10px;
 }
 
-// Navbar styles
-.navbar {
-  background: #a90b0b;
+.profile-land {
+  text-align: center;
 }
 
-#custom_nav {
-  color: white;
-  border-radius: 6px;
-  box-shadow: 0px 0px 10px 2px rgba(255,255,255,.3);
-  margin: 0 1px;
-}
-#login {
-  text-align: right;
+// Main body styles
+
+#main-content {
+  // background: red;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  height: 100%;
+  text-align: center;
+  padding-top: 75px;
+  padding-left: 50px;
+  padding-right: 50px;
+  box-shadow: inset 8px 1px 8px -4px rgba(0,0,0,0.4);
 }
 
-div.align {
-  position: absolute;
-  right: 500px
+#main {
+  margin: 0 auto;
 }
 
-div.trade_request {
-  position: absolute;
-  right: 100px;
-  top: 100px
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// * {
+//   font-family: 'Helvetica';
+//   font-size: 1.1em;
+// }
+// // Body Styles
+// body {
+//   padding-top: 70px;
+//   padding-bottom: 30px;
+//   width: 1200px;
+//   margin: 0 auto;
+//   padding: 0;
+//   // text-align: center;
+// }
+//
+// body[style] {
+//   background-size: cover !important;
+//   background-attachment: fixed !important;
+//   background-repeat: no-repeat !important;
+// }
+// .spacer {
+//   padding-top: 100px;
+// }
+//
+// body .container {
+//   width: 85%;
+// }
+//
+// .background-opac {
+//   width: 100%;
+//   background-color: 255 255 255 .5;
+// }
+//
+// .pokemon_profile {
+//   width: 30%;
+//   text-align: left;
+//   float: left;
+//   margin: 0px 12px;
+//   margin-top: 50px;
+//   border: 5px solid black;
+//   border-radius: 7px;
+//   padding-right: 75px;
+//   padding-left: 14px;
+// }
+//
+// .pokemon_profile img {
+//   width: 50%;
+//   padding: 12px 0;
+//   // border-radius: 10px;
+// }
+//
+// // Navbar styles
+// .navbar {
+//   background: #a90b0b;
+// }
+//
+// #custom_nav {
+//   color: white;
+//   border-radius: 6px;
+//   box-shadow: 0px 0px 10px 2px rgba(255,255,255,.3);
+//   margin: 0 1px;
+// }
+// #login {
+//   text-align: right;
+// }
+//
+// div.align {
+//   position: absolute;
+//   right: 500px
+// }
+//
+// div.trade_request {
+//   position: absolute;
+//   right: 100px;
+//   top: 100px
+// }

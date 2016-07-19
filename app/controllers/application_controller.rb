@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   protect_from_forgery with: :exception
   helper_method :current_user
   helper_method :current_user_leader_of

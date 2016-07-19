@@ -1,20 +1,19 @@
-<div>
-  <img src="#" />
-  <!-- <h2><label>Name:</label></h2> -->
-  <h3><label><%= user.name %></label></h3>
+<div class="profile-">
+  <img src="/assets/avatar.jpg" /><br>
+  <%= link_to user.name, user_path(user) %><br>
   <% if user.catchphrase.present? %>
-  <br><i>"<%=user.catchphrase%>"</i></br>
+  <i>"<%=user.catchphrase%>"</i><br>
   <%end%>
-  <br><label>Gym:</label>
-  <%=link_to "#{user.gym.name}", gym_path(user.gym)%></br>
+  <label>Gym:</label>
+  <%=link_to "#{user.gym.name}", gym_path(user.gym)%><br>
   <% if user.leader %>
-    <br>Leader of <%=user.gym.name%></br>
+    Leader of <%=user.gym.name%><br>
   <% else %>
-    <br><label>Rank:</label>
-    <%= user.trainer.rank %></br>
-    <br><ul><label>Badges:</label>
+    <label>Rank:</label>
+    <%= user.trainer.rank %><br>
+    <ul><label>Badges:</label>
     <% user.trainer.badges.each do |badge| %>
     <li><%= badge.name %> Badge</li>
-    <% end %></ul><br>
+    <% end %></ul>
   <% end %>
 </div>

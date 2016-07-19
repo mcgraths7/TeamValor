@@ -326,6 +326,10 @@ User.create(name: 'Lee', age: 21, catchphrase: 'ayy lmao', gym: Gym.first, passw
 User.create(name: 'Gina', age: 21, catchphrase: 'idk lol', gym: Gym.find_by(name: 'Fuschia City'), password: "hi")
 User.create(name: 'Steven', age: 21, catchphrase: 'dat boi', gym: Gym.find_by(name: 'Saffron City'), password: "hi")
 User.create(name: 'Julie', age: 21, catchphrase: 'waddup', gym: Gym.last, password: "hi")
+Trainer.create(user_id: 1)
+Trainer.create(user_id: 2)
+Trainer.create(user_id: 3)
+Trainer.create(user_id: 4)
 
 UserPokemon.create(nickname: 'Charizard', user: User.find(2), pokemon: Pokemon.find(6), level: 36)
 UserPokemon.create(nickname: 'Dragonite', user: User.find(2), pokemon: Pokemon.find(67), level: 32)
