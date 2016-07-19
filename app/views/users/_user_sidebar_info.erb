@@ -1,13 +1,19 @@
   <div class="side-nav-bar">
     <img class="pulse" src="/assets/avatar.jpg" />
     <h1><%= user.name %></h1>
+    <% if user.trainer %>
     <h3>Level: <%= user.trainer.rank %></h3>
+    <% else %>
+    <h3>Leader of <%= user.gym.name %> Gym</h3>
+    <% end %>
     <a href="<%= user_path(user) %>">Profile</a><br>
     <a href="<%= new_pokemons_path(user) %>">Add Pokemon</a><br>
-    <a href="#">Gym</a><br>
+    <a href="<%=gym_path(user.gym.id)%>">Gym</a><br>
     <a href="<%= users_path %>">Battle</a><br>
     <a href="<%= users_path %>">Trade</a><br>
+    <%= link_to 'Log Out', logout_path, method: 'post'%></a>
   </div>
+
 
 
 <!-- <div class="navbar navbar-inverse navbar-fixed-left">

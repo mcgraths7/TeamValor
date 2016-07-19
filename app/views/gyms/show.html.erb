@@ -1,10 +1,12 @@
 <h1><%= @gym.name %></h1>
 <%= label_tag :leader %>
+<% if @gym.user_pokemons.present?%>
 <%= @gym.find_leader.first.name %>
 <h2>Most Common Type: <%= @gym.most_common_type.keys[0] %> with <%= @gym.most_common_type.values[0] %> Pokemon</h2>
 <h2>Highest Level Pokemon: <%= @gym.highest_level_pokemon %></h2>
 <h2>Trainers Who Have Claimed This Gym's Badge: <%= @gym.trainers_with_badge %>
 <h3>Trainers:</h3>
+<%end%>
 <% @tiers.each do |name, method| %>
   <h4><%=name%> Tier</h4>
   <% @gym.send(method).each do |user| %>

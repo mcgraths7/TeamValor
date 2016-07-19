@@ -326,10 +326,12 @@ User.create(name: 'Lee', age: 21, catchphrase: 'ayy lmao', gym: Gym.first, passw
 User.create(name: 'Gina', age: 21, catchphrase: 'idk lol', gym: Gym.find_by(name: 'Fuschia City'), password: "hi")
 User.create(name: 'Steven', age: 21, catchphrase: 'dat boi', gym: Gym.find_by(name: 'Saffron City'), password: "hi")
 User.create(name: 'Julie', age: 21, catchphrase: 'waddup', gym: Gym.last, password: "hi")
-Trainer.create(user_id: 1)
-Trainer.create(user_id: 2)
-Trainer.create(user_id: 3)
-Trainer.create(user_id: 4)
+User.create(name: 'Ash', age: 10, catchphrase: 'Gotta Catch em all', gym: Gym.first, password: 'hi')
+# Trainer.create(user_id: 1)
+# Trainer.create(user_id: 2)
+# Trainer.create(user_id: 3)
+# Trainer.create(user_id: 4)
+# Trainer.create(user_id: 5)
 
 UserPokemon.create(nickname: 'Charizard', user: User.find(2), pokemon: Pokemon.find(6), level: 36)
 UserPokemon.create(nickname: 'Dragonite', user: User.find(2), pokemon: Pokemon.find(67), level: 32)
@@ -337,11 +339,6 @@ Leader.create(user: User.first)
 Leader.create(user: User.find(2))
 Leader.create(user: User.find(3))
 Leader.create(user: User.last)
-Gym.all.each do |gym|
-  i = 1
-  gym.update(leader_id: i)
-  i += 1
-end
 Badge.create(name: 'Boulder', leader: Leader.first)
 Badge.create(name: 'Soul', leader: Leader.find(2))
 Badge.create(name: 'Marsh', leader: Leader.find(3))

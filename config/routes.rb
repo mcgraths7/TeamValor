@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/users/:id/decline_trade/:trade_request_id', to: 'trade_requests#decline', as: 'trade_request_decline'
   post '/users/:id', to: 'users#destroy', as: 'delete_user'
   get '/users/:id/trade_requests', to: 'trade_requests#user', as: 'user_trade_requests'
+  post '/logout', to: 'sessions#destroy', as: 'logout'
 #  get '/users/:id/trade_requests/:pokemon_id'
 
 

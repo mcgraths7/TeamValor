@@ -8,7 +8,8 @@
   <%=link_to "#{user.gym.name}", gym_path(user.gym)%><br>
   <% if user.leader %>
     Leader of <%=user.gym.name%><br>
-  <% else %>
+  <% elsif user.trainer %>
+
     <label>Rank:</label>
     <%= user.trainer.rank %><br>
     <ul><label>Badges:</label>

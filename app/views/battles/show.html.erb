@@ -1,7 +1,8 @@
 <h1> <%= @battle.friend.nickname %> <%= @battle.result %> against <%= @battle.foe.user.name %>'s <%= @battle.foe.pokemon.name %>! </h1>
 
-
+<% if @battle.friend.user.trainer %>
 <h2>Your new rank: <%= @battle.friend.user.trainer.rank %> </h2>
+<% end %>
 <% if Evolver.new(@battle.friend).evolve %>
 <%= "Your pokemon evolved into a #{@battle.friend.pokemon.name}!" %>
 <% end %>
