@@ -5,26 +5,30 @@
 </div>
 
 <p><%=flash[:message]%></p>
-<div class= 'align'>
-<% if session[:user_id] == @user.id %>
-  <h2><%= label_tag "pokemon", "Your Pokemon" %></h2>
-  <p><%= link_to "Add New Pokemon", new_pokemons_path(session[:user_id]) %></p>
-<% else %>
-  <h2><%= label_tag "pokemon", "#{@user.name}'s Pokemon" %></h2>
-<% end %>
-<br><% @user.user_pokemons.each do |pokemon| %>
-  <p><strong><%= pokemon.nickname %></strong> Level <%= pokemon.level %></p>
-  <% if session[:user_id] != @user.id %>
-    <%= link_to "Battle", battle_new_path(session[:user_id], pokemon) %>
-    <%= link_to "Initiate Trade", trade_new_path(session[:user_id], pokemon) %>
+<div>
+  <% if session[:user_id] == @user.id %>
+    <h2><%= label_tag "pokemon", "Your Pokemon" %></h2>
+    <p><%= link_to "Add New Pokemon", new_pokemons_path(session[:user_id]) %></p>
   <% else %>
-    <%= link_to "Edit Nickname", edit_pokemons_path(session[:user_id], pokemon) %>
-    <%= link_to "Release", user_pokemon_path(pokemon), method: :delete %>
+    <h2><%= label_tag "pokemon", "#{@user.name}'s Pokemon" %></h2>
   <% end %>
-<% end %>
-<% if current_user_can_kick_out(@user) %>
-  <%= link_to "Kick out", user_path(@user), method: :delete%>
-<% end %></br>
+  <br><% @user.user_pokemons.each do |pokemon| %>
+    <div class="align">
+      <div class="crop"><img src="https://img.pokemondb.net/artwork/<%= Pokemon.find(pokemon.pokemon_id).name.downcase %>.jpg" alt="" /></div >
+      <p><strong><%= pokemon.nickname %></strong> Level <%= pokemon.level %></p>
+      <p>Type: <%= Pokemon.find(pokemon.pokemon_id).element.name %></p>
+      <% if session[:user_id] != @user.id %>
+        <%= link_to "Battle", battle_new_path(session[:user_id], pokemon) %>
+        <%= link_to "Initiate Trade", trade_new_path(session[:user_id], pokemon) %>
+      <% else %>
+        <%= link_to "Edit Nickname", edit_pokemons_path(session[:user_id], pokemon) %>
+        <%= link_to "Release", user_pokemon_path(pokemon), method: :delete %>
+      <% end %>
+    </div>
+  <% end %>
+  <% if current_user_can_kick_out(@user) %>
+    <%= link_to "Kick out", user_path(@user), method: :delete%>
+  <% end %></br>
 </div>
 <% if @user.pending_trade_requests && @user == current_user %>
   <div class = "trade_request"><%= link_to 'You have pending trade requests!', user_trade_requests_path(session[:user_id]) %></div>

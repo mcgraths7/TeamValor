@@ -27,7 +27,6 @@ class TradeRequestsController < ApplicationController
 
   def accept
     trade_request = TradeRequest.find(params[:trade_request_id])
-    byebug
     Trader.new(trade_request).execute
     flash[:message] = "Successfully traded #{trade_request.take.nickname} for #{trade_request.take.user.name}'s #{trade_request.give.pokemon.name}!" #this is glitched
     TradeRequest.where('give_id = ? OR take_id = ?', trade_request.give.id, trade_request.give.id).destroy_all

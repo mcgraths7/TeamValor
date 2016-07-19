@@ -21,7 +21,6 @@ class BattlesController < ApplicationController
       else
         la.loss
       end
-      byebug
       redirect_to battle_path(Battle.last)
     else
       flash[:message] = "don't be cheap"
